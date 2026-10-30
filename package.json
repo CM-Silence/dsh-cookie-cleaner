@@ -1,0 +1,39 @@
+{
+  "name": "dsh-cookie-cleaner",
+  "version": "0.1.7",
+  "description": "DSH plugin: keep the desktop cookie store small so startup never hits the 16KB request-header 431, without touching account logins or UI settings",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22",
+    "dsh": ">=0.2.1-rc.2"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node --test",
+    "status": "node bin/clean.mjs status",
+    "clean": "node bin/clean.mjs clean --dry-run"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cookies",
+    "sqlite"
+  ],
+  "license": "MIT"
+}
